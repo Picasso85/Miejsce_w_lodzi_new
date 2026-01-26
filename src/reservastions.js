@@ -12,6 +12,8 @@ cruiseType.addEventListener('change', () => {
 
   // Godzina nie dotyczy
   else if (
+    selected === 'Rejs o zachodzie słońca' ||
+    selected === 'Impreza firmowa' ||
     selected === 'Ognisko' ||
     selected === 'Kajaki' ||
     selected === 'Kurs sternika motorowodnego'
