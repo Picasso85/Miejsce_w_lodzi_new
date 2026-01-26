@@ -306,7 +306,7 @@ function initMaps(){
     if(contactEl){
         const m=L.map('map').setView([50.0444,19.3146],13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(m);
-        L.marker([50.0444,19.3146]).addTo(m).bindPopup('<strong>Miejsce w Łodzi</strong>').openPopup();
+        L.marker([50.0444,19.3146]).addTo(m).bindPopup('<strong>Przystan im. rotm. Witolda Pileckiego</strong>').openPopup();
         window.contactMap=m;
     }
     
