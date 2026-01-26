@@ -126,9 +126,17 @@ function updateRouteMap(routeId){
 
 // ===================== TESTIMONIALS =====================
 function initTestimonialsSlider(){
-    const slides=[...document.querySelectorAll('.testimonial')]; if(!slides.length) return;
-    let i=0; slides[i].classList.add('active');
-    setInterval(()=>{slides[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active');},5000);
+    const slides = [...document.querySelectorAll('.testimonial')];
+    if(!slides.length) return;
+
+    let i = 0;
+    slides[i].classList.add('active');
+
+    setInterval(() => {
+        slides[i].classList.remove('active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('active');
+    }, 5000);
 }
 
 // ===================== BOOKING FORM =====================
