@@ -2012,6 +2012,14 @@ footer::before {
         width: 100%;
     }
 
+    .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center; /* Wyśrodkowanie elementów galerii */
+
+}
+
     /* Opinie – mniejsza wysokość */
     .testimonial-slides {
         height: 260px;
