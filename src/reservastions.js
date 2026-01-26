@@ -1,13 +1,16 @@
-const reservations = [
-  { place: "Tyniec", time: "08:00" },
-  { place: "Kraków", time: "08:00" },
-  { place: "Kajaki", time: "08:00" },
-  { place: "Kursy", time: "08:00" }
-];
+const cruiseType = document.getElementById('cruise-type');
+const cruiseTime = document.getElementById('cruise-time');
 
-// ustawiamy godzinę 8:00 tylko dla Tyniec i Kraków
-reservations.forEach(res => {
-  if(res.place === "Tyniec" || res.place === "Kraków") {
-    res.time = "08:00";
+cruiseType.addEventListener('change', () => {
+  const selected = cruiseType.value;
+
+  if (selected === 'Tyniec' || selected === 'Kraków' || selected === 'Kursy' || selected === 'Kajaki') {
+    // ustawiamy godzinę na 08:00 i blokujemy zmianę
+    cruiseTime.value = '08:00';
+    cruiseTime.disabled = true;
+  } else {
+    // odblokowujemy pole i resetujemy wybór
+    cruiseTime.disabled = false;
+    cruiseTime.value = '';
   }
 });
