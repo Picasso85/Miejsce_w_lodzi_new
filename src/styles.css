@@ -2035,6 +2035,44 @@ footer::before {
         height: 350px;
     }
 }
+/* ============================================
+   TELEFON LANDSCAPE – SAMSUNG / ANDROID FIX
+============================================ */
+@media (orientation: landscape) and (max-height: 500px) {
+
+    /* KAFELKI / GRIDY */
+    .offer-grid,
+    .pricing-container,
+    .routes-container,
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px;
+    }
+
+    /* Sekcje */
+    section {
+        padding: 30px 0;
+    }
+
+    /* Opinie */
+    .testimonial-slides {
+        height: 240px;
+    }
+
+    .testimonial-content {
+        padding: 18px;
+    }
+
+    /* Formularz */
+    .booking-container {
+        flex-direction: column;
+    }
+
+    /* Menu */
+    .nav-menu li {
+        margin: 8px 0;
+    }
+}
 
 /* ============================================
   17. My tools and helpers
