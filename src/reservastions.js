@@ -16,7 +16,7 @@ cruiseType.addEventListener('change', () => {
     selected === 'Kajaki' ||
     selected === 'Kurs sternika motorowodnego'
   ) {
-    cruiseTime.value = '';
+    cruiseTime.value = '08:00, 10:00, 12:00, 14:00, 16:00, 18:00';
     cruiseTime.disabled = true;
   }
 
