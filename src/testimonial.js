@@ -1,7 +1,7 @@
 const testimonials = [
   {
     stars: 5,
-    text: "Wspaniały sposób na poznanie Łodzi z innej perspektywy! Przewodnik opowiadał fascynujące historie o mieście. Polecam każdemu, kto szuka ciekawej atrakcji.",
+    text: "Wspaniały sposób na poznanie Oświęcimia z innej perspektywy! Przewodnik opowiadał fascynujące historie o mieście. Polecam każdemu, kto szuka ciekawej atrakcji.",
     author: "Anna K.",
     avatar: "assets/avatars/1.png",
     photo: "assets/img1.jpg"
