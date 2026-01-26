@@ -4,13 +4,17 @@ const cruiseTime = document.getElementById('cruise-time');
 cruiseType.addEventListener('change', () => {
   const selected = cruiseType.value;
 
-  if (selected === 'Tyniec' || selected === 'Kraków' || selected === 'Kursy' || selected === 'Kajaki') {
-    // ustawiamy godzinę na 08:00 i blokujemy zmianę
+  if (selected === 'Tyniec' || selected === 'Kraków') {
+    // ustawienie godziny na 08:00 i zablokowanie pola
     cruiseTime.value = '08:00';
     cruiseTime.disabled = true;
-  } else {
-    // odblokowujemy pole i resetujemy wybór
-    cruiseTime.disabled = false;
+  } else if (selected === 'Kajaki' || selected === 'Kursy') {
+    // dla Kajaki i Kurs Sternika wyłączamy całkowicie wybór godziny
     cruiseTime.value = '';
+    cruiseTime.disabled = true;
+  } else {
+    // dla pozostałych opcji pole aktywne
+    cruiseTime.value = '';
+    cruiseTime.disabled = false;
   }
 });
