@@ -12,7 +12,6 @@ cruiseType.addEventListener('change', () => {
 
   // Godzina nie dotyczy
   else if (
-    selected === 'Impreza firmowa' ||
     selected === 'Ognisko' ||
     selected === 'Kajaki' ||
     selected === 'Kurs sternika motorowodnego'
