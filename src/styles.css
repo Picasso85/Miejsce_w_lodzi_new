@@ -285,6 +285,7 @@ section:nth-child(odd):not(#oferta):not(#galeria):not(#trasy):not(#cennik):not(#
 /* hover / active */
 .theme-toggle:hover {
     background-color: var(--dark-blue);
+    color: var(--dark-blue);
     border-color: var(--dark-blue);
 }
 
