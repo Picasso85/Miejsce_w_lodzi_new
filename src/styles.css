@@ -79,6 +79,12 @@
         background-color: #2C3E50;
         border-left: 4px solid var(--blue);
     }
+    /* hover / active */
+    .theme-toggle:hover {
+    background-color: var(--dark-blue);
+    color: var(--dark-blue);
+    border-color: var(--dar-blue);
+}
 }
 
 ::view-transition-old(root) {
@@ -286,7 +292,7 @@ section:nth-child(odd):not(#oferta):not(#galeria):not(#trasy):not(#cennik):not(#
 .theme-toggle:hover {
     background-color: var(--dark-blue);
     color: var(--dark-blue);
-    border-color: var(--dark-blue);
+    border-color: var(--dar-blue);
 }
 
 .theme-toggle:active {
