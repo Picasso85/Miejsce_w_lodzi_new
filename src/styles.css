@@ -59,13 +59,19 @@
 
     }
 
+    .theme-toggle {
+        border-color: var(--dark-blue);
+        color: var(--white);
+        z-index: 999;
+    }
+
     footer a, footer p {
         color: var(--white);
     }
 
     .footer-logo {
         opacity: 0.5;
-        filter: drop-shadow(2px 5px 10px rgba(48, 51, 58, 0.5));
+        filter: drop-shadow(2px 5px 10px var(--dark-grey));
 
     }
 
@@ -73,21 +79,10 @@
         background-color: #2C3E50;
         border-left: 4px solid var(--blue);
     }
-
-    .theme-toggle {
-    border-color: var(--dark-grey);
-    color: var(--light-grey);    
-    }
-
-    .theme-toggle:hover {
-    background-color: var(--dark-blue);
-    color: var(--blue);
-    border-color: var(--blue);
-    }
 }
 
 ::view-transition-old(root) {
-    animation: move-out 0.5s ease forwards;
+    animation: move-out 1s ease forwards;
 }
 
 ::view-transition-new(root) {
@@ -277,8 +272,7 @@ section:nth-child(odd):not(#oferta):not(#galeria):not(#trasy):not(#cennik):not(#
     height: 40px;
     border-radius: 50%;
     border: 2px solid var(--light-grey);
-    background-color: transparent;
-    color: var(--dark-grey);
+    color: var(--dark-blue);
     cursor: pointer;
     font-size: 1.2rem;
     display: flex;
@@ -290,8 +284,7 @@ section:nth-child(odd):not(#oferta):not(#galeria):not(#trasy):not(#cennik):not(#
 
 /* hover / active */
 .theme-toggle:hover {
-    background-color: var(--light-grey);
-    color: var(--dark-blue);
+    background-color: var(--dark-blue);
     border-color: var(--dark-blue);
 }
 
@@ -395,6 +388,7 @@ header {
     padding: 10px 50px;
     z-index: 9999;
     opacity: 90%;
+    border-radius: 0 0 25px 25px;
 }
 
 /* Logo */
