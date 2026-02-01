@@ -83,8 +83,10 @@
     .theme-toggle:hover {
     background-color: var(--dark-blue);
     color: var(--dark-blue);
-    border-color: var(--dar-blue);
-}
+    }
+    .pricing-card.new::before .pricing-card.featured::before {
+        color: var(--dark-grey);
+    }
 }
 
 ::view-transition-old(root) {
@@ -174,6 +176,8 @@ p {
 
 a {
     text-decoration: none;
+    display: block;
+    padding: .2rem 0;
     color: inherit;
     transition: var(--transition);
 }
@@ -211,7 +215,7 @@ section {
     z-index: 1;
 }
 
-.wave-divider {
+.wave-divider-gray {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -278,6 +282,7 @@ section:nth-child(odd):not(#oferta):not(#galeria):not(#trasy):not(#cennik):not(#
     height: 40px;
     border-radius: 50%;
     border: 2px solid var(--dark-blue);
+    background-color: var(--dark-grey);
     color: var(--dark-blue);
     cursor: pointer;
     font-size: 1.2rem;
@@ -288,11 +293,10 @@ section:nth-child(odd):not(#oferta):not(#galeria):not(#trasy):not(#cennik):not(#
     position: relative;
 }
 
-/* hover / active */
+/* hover / active theme-toggle */
 .theme-toggle:hover {
     background-color: var(--dark-blue);
-    color: var(--dark-blue);
-    border-color: var(--dar-blue);
+    color: var(--white);
 }
 
 .theme-toggle:active {
@@ -392,10 +396,17 @@ header {
 .main-nav.scrolled {
     background-color: var(--dark-blue);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    top: 10px;
+    align-items: center;
     padding: 10px 50px;
     z-index: 9999;
-    opacity: 90%;
-    border-radius: 0 0 25px 25px;
+    opacity: 95%;
+    corner-shape: squircle;
+
+    @supports (corner-shape: squircle) {
+        border-radius: 25px;
+        corner-shape: squircle;
+    }
 }
 
 /* Logo */
@@ -420,18 +431,18 @@ header {
 .nav-menu li a {
     color: var(--white);
     font-weight: 600;
-    padding: 5px 0;
+    padding: 0;
     position: relative;
 }
 
 .nav-menu li a::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px;
-    background-color: var(--turquoise);
+    height: 5px;
+    background-color: var(--blue);
     transition: width 0.3s ease;
 }
 
@@ -1390,11 +1401,12 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 10px;
   perspective: 1200px;
+  margin-bottom: 10em;
 }
 
 .testimonial {
   width: 100%;
-  height: 300px;
+  height: 400px;
   position: relative;
   transform-style: preserve-3d;
   cursor: pointer;
