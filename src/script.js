@@ -140,36 +140,130 @@ function initTestimonialsSlider(){
 }
 
 // ===================== BOOKING FORM =====================
-function initBookingForm(){
-    const form=document.getElementById('booking-form'); if(!form) return;
-    const dateInput=document.getElementById('cruise-date'); if(dateInput){const today=new Date().toISOString().split('T')[0]; dateInput.min=today; dateInput.value=today;}
-    form.addEventListener('submit', e=>{
-        e.preventDefault(); let isValid=true;
-        form.querySelectorAll('[required]').forEach(f=>!f.value.trim()?(isValid=false,showFieldError(f,'To pole jest wymagane')):clearFieldError(f));
-        const email=document.getElementById('contact-email'); if(email&&email.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) isValid=false,showFieldError(email,'Podaj poprawny adres email');
-        const phone=document.getElementById('contact-phone'); if(phone&&phone.value&&!/^[+]?[0-9\s\-()]{9,}$/.test(phone.value.replace(/\s/g,''))) isValid=false,showFieldError(phone,'Podaj poprawny numer telefonu');
-        if(isValid){showBookingSuccess(Object.fromEntries(new FormData(form))); form.reset(); if(dateInput) dateInput.value=new Date().toISOString().split('T')[0];}
-        else showNotification('Proszę poprawić błędy w formularzu','error');
+function initBookingForm() {
+    const form = document.getElementById('booking-form');
+    if (!form) return;
+
+    const dateInput = document.getElementById('cruise-date');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = today;
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // walidacja pól
+        let isValid = true;
+        form.querySelectorAll('[required]').forEach(f => {
+            if (!f.value.trim()) {
+                isValid = false;
+                showFieldError(f, 'To pole jest wymagane');
+            } else {
+                clearFieldError(f);
+            }
+        });
+
+        const email = document.getElementById('contact-email');
+        if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+            isValid = false;
+            showFieldError(email, 'Podaj poprawny adres email');
+        }
+
+        const phone = document.getElementById('contact-phone');
+        if (phone && phone.value && !/^[+]?[0-9\s\-()]{9,}$/.test(phone.value.replace(/\s/g, ''))) {
+            isValid = false;
+            showFieldError(phone, 'Podaj poprawny numer telefonu');
+        }
+
+        // jeśli coś nie tak, zakończ
+        if (!isValid) {
+            alert('Proszę poprawić błędy w formularzu');
+            return;
+        }
+
+        // honeypot
+        const honeypot = form.querySelector('input[name="website"]');
+        if (honeypot && honeypot.value) return; // spam bot
+
+        // wysyłka fetch
+        const formData = new FormData(form);
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                showBookingSuccess(Object.fromEntries(formData));
+                form.reset();
+                if (dateInput) dateInput.value = new Date().toISOString().split('T')[0];
+            } else {
+                alert(result.message);
+            }
+        } catch (err) {
+            console.error(err);
+            alert('Błąd wysyłki formularza');
+        }
     });
-    form.querySelectorAll('input,select').forEach(f=>{f.addEventListener('blur',()=>validateField(f)); f.addEventListener('input',()=>clearFieldError(f));});
+
+    // eventy dla walidacji pól
+    form.querySelectorAll('input, select').forEach(f => {
+        f.addEventListener('blur', () => validateField(f));
+        f.addEventListener('input', () => clearFieldError(f));
+    });
 }
-function validateField(f){if(f.hasAttribute('required')&&!f.value.trim()) return showFieldError(f,'To pole jest wymagane'); if(f.type==='email'&&f.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value)) return showFieldError(f,'Podaj poprawny adres email'); if(f.id==='contact-phone'&&f.value&&!/^[+]?[0-9\s\-()]{9,}$/.test(f.value.replace(/\s/g,''))) return showFieldError(f,'Podaj poprawny numer telefonu'); clearFieldError(f);}
-function showFieldError(f,msg){clearFieldError(f);f.style.borderColor='#e74c3c';const d=document.createElement('div');d.className='field-error';d.textContent=msg;d.style.cssText='color:#e74c3c;font-size:12px;margin-top:5px;font-weight:600;';f.parentNode.appendChild(d);}
-function clearFieldError(f){f.style.borderColor='';const e=f.parentNode.querySelector('.field-error');if(e)e.remove();}
-function showBookingSuccess(data){
-    const modal=document.createElement('div'); modal.className='booking-success-modal';
-    modal.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;justify-content:center;align-items:center;z-index:10000;animation:fadeIn 0.3s ease;';
-    modal.innerHTML=`<div style="background:white;padding:40px;border-radius:15px;max-width:500px;width:90%;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+
+// ---------------- WALIDACJA ----------------
+function validateField(f) {
+    if (f.hasAttribute('required') && !f.value.trim())
+        return showFieldError(f, 'To pole jest wymagane');
+    if (f.type === 'email' && f.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value))
+        return showFieldError(f, 'Podaj poprawny adres email');
+    if (f.id === 'contact-phone' && f.value && !/^[+]?[0-9\s\-()]{9,}$/.test(f.value.replace(/\s/g, '')))
+        return showFieldError(f, 'Podaj poprawny numer telefonu');
+    clearFieldError(f);
+}
+
+// ---------------- POMOCNICZE ----------------
+function showFieldError(f, msg) {
+    clearFieldError(f);
+    f.style.borderColor = '#e74c3c';
+    const d = document.createElement('div');
+    d.className = 'field-error';
+    d.textContent = msg;
+    d.style.cssText = 'color:#e74c3c;font-size:12px;margin-top:5px;font-weight:600;';
+    f.parentNode.appendChild(d);
+}
+
+function clearFieldError(f) {
+    f.style.borderColor = '';
+    const e = f.parentNode.querySelector('.field-error');
+    if (e) e.remove();
+}
+
+// ---------------- MODAL SUKCESU ----------------
+function showBookingSuccess(data) {
+    const modal = document.createElement('div');
+    modal.className = 'booking-success-modal';
+    modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;justify-content:center;align-items:center;z-index:10000;animation:fadeIn 0.3s ease;';
+    modal.innerHTML = `<div style="background:white;padding:40px;border-radius:15px;max-width:500px;width:90%;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.3);">
         <div style="width:80px;height:80px;background:#17A589;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:white;font-size:36px;">✓</div>
         <h3 style="color:#1B4F72;margin-bottom:15px;">Rezerwacja wysłana!</h3>
         <p style="color:#566573;margin-bottom:20px;line-height:1.6;">Dziękujemy za rezerwację rejsu <strong>${data['cruise-type']||''}</strong>.<br>Skontaktujemy się w ciągu 24h.</p>
         <button id="close-success-modal" style="background:#17A589;color:white;border:none;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;">Zamknij</button>
     </div>`;
     document.body.appendChild(modal);
-    modal.addEventListener('click', e=>{if(e.target.id==='close-success-modal'||e.target===modal) modal.remove();});
-    setTimeout(()=>modal.remove(),7000);
+    modal.addEventListener('click', e => {
+        if (e.target.id === 'close-success-modal' || e.target === modal) modal.remove();
+    });
+    setTimeout(() => modal.remove(), 7000);
 }
 
+// ---------------- INIT ----------------
+document.addEventListener('DOMContentLoaded', initBookingForm);
 // ===================== LIGHTBOX =====================
 function initLightbox() {
     const gallery = document.querySelector('#galeria');
@@ -306,7 +400,7 @@ function initMaps(){
     if(contactEl){
         const m=L.map('map').setView([50.0444,19.3146],13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(m);
-        L.marker([50.0444,19.3146]).addTo(m).bindPopup('<strong>Przystan im. rotm. Witolda Pileckiego</strong>').openPopup();
+        L.marker([50.0444,19.3146]).addTo(m).bindPopup('<strong>Przystan im. rtm. Witolda Pileckiego</strong>').openPopup();
         window.contactMap=m;
     }
     
