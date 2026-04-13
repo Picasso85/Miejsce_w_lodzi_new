@@ -8,7 +8,6 @@
 }
 
 :root {
-
     color-scheme: light;
 
     --blue: #2E86C1;
@@ -23,8 +22,6 @@
     --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.15);
     --transition: all 0.3s ease;
-
- 
 }
 
 :root[data-theme="dark"] {
@@ -34,14 +31,11 @@
     --turquoise: #48C9B0;
     --sand: #F7DC6F;
     --green: #58D68D;
-
     --white: #1C1F24;
     --light-blue: #2C3E50;
     --dark-blue: #85C1E9;
-
     --light-grey: #2A2E35;
     --dark-grey: #fefefe;
-
     --shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.7);
 
@@ -54,9 +48,8 @@
     }
 
     .logo img {
-    content: url("../assets/logo/mix.png");
-    opacity: 0.9;
-
+        content: url("../assets/logo/mix.png");
+        opacity: 0.9;
     }
 
     a, p, H3, li{
@@ -69,7 +62,6 @@
         z-index: 999;
     }
 
-    
     footer a:hover {
         color: var(--blue);
     }
@@ -81,7 +73,6 @@
     .footer-logo {
         opacity: 0.9;
         filter: drop-shadow(1px 2px 5px var(--white));
-
     }
 
     .main-nav.scrolled {
@@ -106,10 +97,9 @@
         background-color: #2C3E50;
         border-left: 4px solid var(--blue);
     }
-    /* hover / active */
     .theme-toggle:hover {
-    background-color: var(--light-blue);
-    color: var(--dark-blue);
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
     }
     .pricing-card.new::before, .pricing-card.featured::before {
         color: var(--dark-grey);
@@ -130,12 +120,7 @@
     .nav-menu.active li a {
         color: var(--dark-grey);
     }
-
 }
-
-
-
-
 
 ::view-transition-old(root) {
     animation: move-out 1s ease forwards;
@@ -167,18 +152,16 @@
     }
 }
 
-
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; 
-    overflow-x: hidden; 
+    scroll-padding-top: 80px;
+    overflow-x: hidden;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-
     background-color: var(--white);
     color: var(--dark-grey);
 }
@@ -251,7 +234,6 @@ li {
     padding: 50px 20px;
     z-index: 999;
 }
-  
 
 section {
     padding: 100px 0;
@@ -273,7 +255,6 @@ section {
     z-index: 1;
 }
 
-/* Sekcje z tłem */
 section:nth-child(even):not(#o-nas):not(#rezerwacja):not(#opinie) {
     background-color: var(--light-grey);
 }
@@ -341,7 +322,6 @@ section:nth-child(odd):not(#oferta):not(#galeria):not(#trasy):not(#cennik):not(#
     position: relative;
 }
 
-/* hover / active theme-toggle */
 .theme-toggle:hover {
     background-color: var(--dark-blue);
     color: var(--white);
@@ -351,6 +331,7 @@ section:nth-child(odd):not(#oferta):not(#galeria):not(#trasy):not(#cennik):not(#
     transform: scale(0.95);
     transition: transform 0.1s ease;
 }
+
 /* ============================================
   3. HEADER & HERO SECTION
 ============================================ */
@@ -361,7 +342,6 @@ header {
     overflow: hidden;
 }
 
-/* Kontener hero */
 .hero-container {
     position: relative;
     width: 100%;
@@ -379,7 +359,6 @@ header {
     z-index: -1;
 }
 
-/* Nakładka gradientowa */
 .overlay {
     position: absolute;
     top: 0;
@@ -390,7 +369,6 @@ header {
     z-index: 0;
 }
 
-/* Treść hero */
 .hero-content {
     position: absolute;
     top: 50%;
@@ -410,7 +388,7 @@ header {
 }
 
 .hero-content h2 {
-    color: var(--white); 
+    color: var(--white);
     font-size: 1.5rem;
     margin-bottom: 30px;
     font-weight: 400;
@@ -438,8 +416,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    
 }
 
 .main-nav.scrolled {
@@ -450,16 +426,13 @@ header {
     padding: 5px 50px;
     z-index: 9999;
     opacity: 95%;
-
     corner-shape: squircle;
-
     @supports (corner-shape: squircle) {
         border-radius: 25px;
         corner-shape: squircle;
     }
 }
 
-/* Logo */
 .logo {
     position: relative;
     width: 150px;
@@ -476,8 +449,8 @@ header {
             drop-shadow(10px 2px 5px rgba(0, 0, 0, 0.1));
     position: absolute;
     z-index: 1;
-    border-radius: 0  0 50% 50%;
-    
+    border-radius: 0 0 50% 50%;
+    max-width: none; /* zapobiega skalowaniu w dół, ale zachowuje proporcje */
 }
 
 .main-nav.scrolled .logo img {
@@ -492,7 +465,6 @@ header {
             drop-shadow(3px 5px 10px rgba(255, 255, 255, 0.3));
 }
 
-/* Menu główne */
 .nav-menu {
     display: flex;
     gap: 30px;
@@ -522,7 +494,6 @@ header {
     width: 100%;
 }
 
-/* Hamburger menu */
 .menu-toggle {
     display: none;
     background: none;
@@ -548,7 +519,6 @@ header {
     align-items: center;
 }
 
-/* OBRAZ */
 .about-image img {
     width: 100%;
     border-radius: 20px;
@@ -556,14 +526,12 @@ header {
     object-fit: cover;
 }
 
-/* TEKST */
 .about-text {
     font-family: "Segoe UI", sans-serif;
     color: #333;
     line-height: 1.7;
 }
 
-/* SEKCJE TEKSTU */
 .about-section {
     margin-bottom: 40px;
 }
@@ -580,13 +548,11 @@ header {
     margin-bottom: 15px;
 }
 
-/* PARAGRAFY */
 .about-text p {
     margin-bottom: 15px;
     text-align: justify;
 }
 
-/* LISTA */
 .mission-list {
     margin-top: 15px;
     padding-left: 0;
@@ -599,7 +565,6 @@ header {
     position: relative;
 }
 
-/* IKONKI */
 .mission-list li::before {
     content: "⚓";
     position: absolute;
@@ -616,7 +581,6 @@ header {
     padding: 80px 0;
 }
 
-/* Tytuł sekcji - wyśrodkowany */
 #oferta h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -638,7 +602,6 @@ header {
     border-radius: 2px;
 }
 
-/* Kontener siatki - wyśrodkowanie całej siatki */
 .offer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -647,10 +610,9 @@ header {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
-    justify-items: center; /* Wyśrodkowanie kafelków w komórkach siatki */
+    justify-items: center;
 }
 
-/* Podstawowy styl kafelka */
 .offer-card {
     background-color: var(--white);
     padding: 35px 25px;
@@ -668,13 +630,11 @@ header {
     min-height: 320px;
 }
 
-/* Hover efekt */
 .offer-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Ikona w kafelku */
 .offer-icon {
     width: 80px;
     height: 80px;
@@ -702,189 +662,135 @@ header {
     color: var(--white);
 }
 
-/* Nagłówek kafelka */
 .offer-card h3 {
     margin-bottom: 15px;
     color: var(--dark-blue);
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1.3;
-    min-height: 3.2em; /* Stała wysokość dla nagłówków */
+    min-height: 3.2em;
 }
 
-/* Tekst kafelka */
 .offer-card p {
     color: var(--dark-grey);
     line-height: 1.6;
     font-size: 1rem;
-    flex-grow: 1; /* Rozciąga tekst aby wypełnić przestrzeń */
+    flex-grow: 1;
     margin-bottom: 0;
 }
 
-/* ============================================
-   RESPONSYWNOŚĆ OFERTY
-============================================ */
-
-/* Duże ekrany - 4 kafelki w rzędzie z perfekcyjnym wyśrodkowaniem */
+/* Responsywność oferty */
 @media (min-width: 1200px) {
     .offer-grid {
         grid-template-columns: repeat(4, 1fr);
         justify-content: center;
     }
-    
     .offer-card {
-        max-width: 280px; /* Nieco mniejsze na dużych ekranach */
+        max-width: 280px;
     }
 }
-
-/* Średnie ekrany - 2-3 kafelki w rzędzie */
 @media (min-width: 768px) and (max-width: 1199px) {
     .offer-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        max-width: 900px; /* Ograniczona szerokość dla lepszego wyśrodkowania */
+        max-width: 900px;
     }
-    
     .offer-card {
         max-width: 300px;
     }
 }
-
-/* Małe ekrany tablet - 2 kafelki */
 @media (min-width: 576px) and (max-width: 767px) {
     .offer-grid {
         grid-template-columns: repeat(2, 1fr);
         max-width: 650px;
     }
-    
     .offer-card {
         max-width: 100%;
     }
 }
-
-/* Bardzo małe ekrany - 1 kafelek */
 @media (max-width: 575px) {
     .offer-grid {
         grid-template-columns: 1fr;
         max-width: 400px;
         padding: 0 15px;
     }
-    
     .offer-card {
         max-width: 100%;
         padding: 30px 20px;
+        min-height: auto;
     }
-    
     #oferta h2 {
         font-size: 2rem;
         margin-bottom: 40px;
     }
 }
-
-/* Ekstremalnie duże ekrany (4K+) */
 @media (min-width: 1920px) {
     .offer-grid {
         max-width: 1600px;
         gap: 40px;
     }
-    
     .offer-card {
         max-width: 320px;
         padding: 40px 30px;
     }
 }
 
-/* ============================================
-   DODATKOWE POPRAWKI DLA IDEALNEGO WYŚRODKOWANIA
-============================================ */
-
-/* Równa wysokość kafelków w rzędzie */
 .offer-grid::after {
     content: '';
     flex: auto;
 }
-
-/* Zabezpieczenie przed rozciąganiem się kafelków */
 @media (min-width: 1200px) {
     .offer-card:nth-child(4n+1):nth-last-child(-n+4),
     .offer-card:nth-child(4n+1):nth-last-child(-n+4) ~ .offer-card {
-        justify-self: center; /* Wymuś wyśrodkowanie ostatniego rzędu */
+        justify-self: center;
     }
 }
-
-/* Poprawka dla nieparzystej liczby kafelków */
 .offer-grid:has(.offer-card:nth-child(odd):last-child) {
     justify-content: center;
 }
 
-/* Animacja ładowania kafelków */
 @keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
 .offer-card {
     animation: cardAppear 0.5s ease-out forwards;
     opacity: 0;
 }
-
-/* Opóźnienie animacji dla każdego kafelka */
 .offer-card:nth-child(1) { animation-delay: 0.1s; }
 .offer-card:nth-child(2) { animation-delay: 0.2s; }
 .offer-card:nth-child(3) { animation-delay: 0.3s; }
 .offer-card:nth-child(4) { animation-delay: 0.4s; }
 .offer-card:nth-child(5) { animation-delay: 0.5s; }
 
-/* ============================================
-   POPRAWKI DLA SPECJALNYCH PRZYPADKÓW
-============================================ */
-
-/* Gdy jest 5 kafelków (jak w Twoim HTML) - specjalne traktowanie */
 @media (min-width: 1200px) {
     .offer-grid:has(.offer-card:nth-child(5):last-child) {
         grid-template-columns: repeat(4, 1fr);
         max-width: 1200px;
     }
-    
     .offer-grid:has(.offer-card:nth-child(5):last-child) .offer-card:nth-child(5) {
-        grid-column: 2 / span 2; /* Umieść 5ty kafelek na środku w drugim rzędzie */
+        grid-column: 2 / span 2;
         max-width: 300px;
         justify-self: center;
     }
 }
-
-/* Alternatywnie dla 5 kafelków - 3 w pierwszym, 2 w drugim rzędzie */
 @media (min-width: 1200px) {
     .offer-grid.alternative-layout {
         grid-template-columns: repeat(3, 1fr);
         max-width: 1000px;
     }
-    
     .offer-grid.alternative-layout .offer-card:nth-child(4),
     .offer-grid.alternative-layout .offer-card:nth-child(5) {
         grid-column: span 1;
         justify-self: center;
     }
-    
     .offer-grid.alternative-layout .offer-card:nth-child(4) {
         grid-column: 1 / span 1;
     }
-    
     .offer-grid.alternative-layout .offer-card:nth-child(5) {
         grid-column: 3 / span 1;
     }
 }
 
-/* ============================================
-   DODATKOWE EFEKTY WIZUALNE
-============================================ */
-
-/* Subtelne podświetlenie kafelka */
 .offer-card::before {
     content: '';
     position: absolute;
@@ -897,11 +803,9 @@ header {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 .offer-card:hover::before {
     opacity: 1;
 }
-
 
 /* ============================================
   7. GALERIA SECTION
@@ -915,8 +819,7 @@ header {
     margin: auto;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    justify-items: center; /* Wyśrodkowanie elementów galerii */
-
+    justify-items: center;
 }
 
 .gallery-item {
@@ -926,8 +829,8 @@ header {
     box-shadow: var(--shadow);
     cursor: pointer;
     aspect-ratio: 4/3;
-    width: 100%; /* Pełna szerokość w gridzie */
-    max-width: 350px; /* Maksymalna szerokość */
+    width: 100%;
+    max-width: 350px;
 }
 
 .gallery-image {
@@ -958,10 +861,6 @@ header {
 .gallery-item:hover .gallery-overlay {
     transform: translateY(0);
 }
-
-/* =========================
-   LIGHTBOX
-========================= */
 
 .lightbox {
     position: fixed;
@@ -1016,8 +915,6 @@ header {
     to   { opacity: 1; }
 }
 
-/* Inne urządzenia */
-
 @media (min-width: 1200px) {
     .gallery-container {
         grid-template-columns: repeat(3, 1fr);
@@ -1025,15 +922,11 @@ header {
         margin: 0 auto;
     }
 }
-
-/* Dla średnich ekranów - 2 elementy */
 @media (min-width: 768px) and (max-width: 1199px) {
     .gallery-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
-/* Dla małych ekranów - 1 element */
 @media (max-width: 767px) {
     .gallery-container {
         grid-template-columns: 1fr;
@@ -1083,7 +976,6 @@ header {
 }
 
 .route-tab {
-
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -1157,7 +1049,7 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    justify-items: center; /* Dodane - wyśrodkowanie kart */
+    justify-items: center;
 }
 
 .pricing-card {
@@ -1169,16 +1061,14 @@ header {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%; /* Dodane - pełna szerokość w gridzie */
-    max-width: 320px; /* Maksymalna szerokość karty */
+    width: 100%;
+    max-width: 320px;
 }
 
 .pricing-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-hover);
 }
-
-/* Badge Popularne */
 
 .pricing-card.featured {
     transform: scale(1.05);
@@ -1201,7 +1091,6 @@ header {
     z-index: 1;
 }
 
-/* Badge Nowość */
 .pricing-card.new {
     position: relative;
 }
@@ -1211,7 +1100,7 @@ header {
     position: absolute;
     top: 15px;
     right: -35px;
-    background-color: #e74c3c; /* czerwony */
+    background-color: #e74c3c;
     color: var(--white);
     padding: 5px 40px;
     transform: rotate(45deg);
@@ -1281,7 +1170,6 @@ header {
     display: block;
 }
 
-/* Informacja dodatkowa */
 .info {
     background-color: #f5f7fa;
     border-left: 4px solid var(--blue);
@@ -1312,9 +1200,7 @@ header {
     height: 30px;
 }
 
-/* Inne urządzenia */
-
-/* Dla dużych ekranów - 4 karty w rzędzie */
+/* Responsywność cennika – usuwamy skalowanie featured na małych */
 @media (min-width: 1200px) {
     .pricing-container {
         grid-template-columns: repeat(5, 1fr);
@@ -1322,20 +1208,25 @@ header {
         margin: 0 auto;
     }
 }
-
-/* Dla średnich ekranów - 2-3 karty w rzędzie */
 @media (min-width: 768px) and (max-width: 1199px) {
     .pricing-container {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
-
-/* Dla małych ekranów - 1 karta */
 @media (max-width: 767px) {
     .pricing-container {
         grid-template-columns: 1fr;
         max-width: 400px;
         margin: 0 auto;
+    }
+    /* Kluczowa poprawka: wyłączamy skalowanie karty featured */
+    .pricing-card.featured {
+        transform: none;
+    }
+}
+@media (max-width: 767px) {
+    .pricing-card.featured {
+        transform: none;
     }
 }
 
@@ -1351,19 +1242,16 @@ header {
     z-index: 2;
 }
 
-/* Zmiana dla featured - usuwamy scale na małych ekranach */
 @media (max-width: 767px) {
     .pricing-card.featured {
         transform: none;
     }
 }
 
-/* Rozwiązanie problemu z wyrównaniem featured card */
 .pricing-container .pricing-card.featured {
     margin-top: -5px;
     margin-bottom: 5px;
 }
-
 
 /* ============================================
   10. REZERWACJA SECTION
@@ -1379,7 +1267,6 @@ header {
     align-items: flex-start;
 }
 
-/* Widget pogody */
 .weather-widget {
     flex: 1;
     min-width: 280px;
@@ -1440,7 +1327,6 @@ header {
     opacity: 0.9;
 }
 
-/* Formularz rezerwacji */
 .booking-form {
     flex: 2;
     min-width: 300px;
@@ -1467,8 +1353,8 @@ header {
 .form-group input,
 .form-group select {
     width: 100%;
-    height: 52px; 
-    padding: 0 40px 0 12px; /* miejsce na ikonę */
+    height: 52px;
+    padding: 0 40px 0 12px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 16px;
@@ -1478,16 +1364,14 @@ header {
     box-sizing: border-box;
 }
 
-/* Poprawka specyficzna dla ikony kalendarza w Chrome/Edge */
 input[type="date"]::-webkit-calendar-picker-indicator {
     margin-left: 5px;
     cursor: pointer;
     vertical-align: middle;
 }
 
-/* Reset dla selecta, żeby strzałka nie uciekała */
 select {
-    appearance: none; /* Opcjonalne: jeśli chcesz sam stylować strzałkę */
+    appearance: none;
     -webkit-appearance: none;
     background-position: right 10px center;
 }
@@ -1504,7 +1388,6 @@ select {
     border-color: var(--light-blue);
 }
 
-
 .booking-form .btn-primary {
     width: 100%;
     padding: 16px;
@@ -1520,104 +1403,130 @@ select {
 }
 
 .testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 10px;
-  perspective: 1200px;
-  margin-bottom: 10em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 10px;
+    perspective: 1200px;
+    margin-bottom: 10em;
 }
 
 .testimonial {
-  width: 100%;
-  height: 400px;
-  position: relative;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  border-radius: 10px;
-  animation: flip 6s linear infinite;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 10px;
+    animation: flip 6s linear infinite;
 }
 
 .testimonial-inner {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .testimonial:hover .testimonial-inner {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .testimonial-front,
 .testimonial-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
 }
 
 .testimonial-front {
-  background: var(--blue);
-  opacity: 0.8;
+    background: var(--blue);
+    opacity: 0.8;
 }
 
 .testimonial-back {
-  background: var(--shadow);
-  transform: rotateY(180deg);
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  max-width: 100vw;
+    background: var(--shadow);
+    transform: rotateY(180deg);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
 }
 
 .testimonial-back img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* pozostałe style treści front */
 .testimonial-content p {
-  margin: 10px 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .testimonial-author {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .testimonial-avatar img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 .testimonial-stars i {
-  color: var(--sand);
-  margin-right: 2px;
+    color: var(--sand);
+    margin-right: 2px;
 }
 
-/* OPTIONAL: divider fali */
 .wave-divider {
-  width: 100%;
-  height: 60px;
-  background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJyBmaWxsPSdub25lJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxnIGZpbGw9JyNmZmYnPjxwYXRoIGQ9J00wIDUwQzMwIDYwIDcwIDQwIDEwMCA1MCBWMTI1IEgwIFY1MCIgLz48L2c+PC9zdmc+') no-repeat;
-  background-size: cover;
-  margin-top: 40px;
+    width: 100%;
+    height: 60px;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJyBmaWxsPSdub25lJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxnIGZpbGw9JyNmZmYnPjxwYXRoIGQ9J00wIDUwQzMwIDYwIDcwIDQwIDEwMCA1MCBWMTI1IEgwIFY1MCIgLz48L2c+PC9zdmc+') no-repeat;
+    background-size: cover;
+    margin-top: 40px;
 }
 
+/* Poprawki dla opinii – elastyczna wysokość na małych ekranach */
+@media (orientation: landscape) and (max-height: 700px) {
+    .testimonial {
+        height: 280px;
+    }
+    .testimonial-front, .testimonial-back {
+        padding: 15px;
+        justify-content: center;
+    }
+    .testimonial-content p {
+        font-size: 0.85rem;
+    }
+}
+@media (max-width: 480px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .testimonial {
+        height: auto;
+        min-height: 280px;
+    }
+}
+/* Dodatkowe zabezpieczenie przed overflow w testimonial-back */
+.testimonial-back img {
+    max-width: 100%;
+    height: auto;
+}
 
 /* ============================================
   12. KONTAKT SECTION
@@ -1725,6 +1634,17 @@ select {
     min-height: 450px;
 }
 
+/* Poprawka dla mapy na małych ekranach */
+@media (max-width: 768px) {
+    .contact-map {
+        min-width: 100%;
+        height: 300px;
+    }
+    #map {
+        min-height: 300px;
+    }
+}
+
 /* ============================================
   13. CALL NOW BUTTON
 ============================================ */
@@ -1799,6 +1719,7 @@ footer::before {
     height: 300px;
     margin-bottom: 5px;
     filter: brightness(0) invert(1);
+    max-width: 100%;
 }
 
 .footer-logo p {
@@ -1925,8 +1846,6 @@ footer::before {
 /* ============================================
   15. ANIMACJE / ANIMATIONS
 ============================================ */
-
-
 .animated-text span {
     opacity: 0;
     margin-right: 2px;
@@ -2018,27 +1937,21 @@ footer::before {
     section {
         padding: 60px 0;
     }
-    
     h1 {
         font-size: 2.8rem;
     }
-    
     h2 {
         font-size: 2.2rem;
     }
-    
     .hero-content h1 {
         font-size: 2.8rem;
     }
-    
     .hero-content h2 {
         font-size: 1.3rem;
     }
-    
     .main-nav {
         padding: 15px 30px;
     }
-    
     .nav-menu {
         position: fixed;
         top: 0;
@@ -2054,39 +1967,31 @@ footer::before {
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
         z-index: 999;
     }
-    
     .nav-menu.active {
         right: 0;
-        
     }
-    
     .nav-menu li {
         margin: 15px 0;
         width: 100%;
         text-align: center;
     }
-    
     .nav-menu li a {
         font-size: 1.1rem;
         padding: 10px 0;
         display: block;
     }
-    
     .menu-toggle {
         display: block;
     }
-    
     .about-content,
     .booking-container,
     .routes-container,
     .contact-container {
         flex-direction: column;
     }
-    
     .pricing-card.featured {
         transform: none;
     }
-    
     .footer-content {
         flex-direction: column;
         gap: 40px;
@@ -2094,11 +1999,9 @@ footer::before {
     .about-content {
         grid-template-columns: 1fr;
     }
-
     .section-wave {
         padding: 50px 15px;
     }
-
     .section-wave h2 {
         font-size: 28px;
     }
@@ -2108,59 +2011,46 @@ footer::before {
     section {
         padding: 50px 0;
     }
-    
     h1 {
         font-size: 2.5rem;
     }
-    
     h2 {
         font-size: 2rem;
         margin-bottom: 40px;
     }
-    
     .hero-content h1 {
         font-size: 2.3rem;
     }
-    
     .hero-content h2 {
         font-size: 1.2rem;
     }
-    
     .main-nav {
         padding: 12px 20px;
     }
-    
     .main-nav.scrolled {
         padding: 1px 20px;
     }
-    
     .logo img {
         height: 200px;
     }
-    
     .offer-grid,
     .pricing-container {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
     .gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-    
     .weather-widget,
     .booking-form {
         min-width: 100%;
     }
-    
     .testimonial-content {
         padding: 30px;
     }
-    
     .call-now-button span {
         display: none;
     }
-    
     .call-now-button a {
         width: 60px;
         height: 60px;
@@ -2168,18 +2058,15 @@ footer::before {
         justify-content: center;
         padding: 0;
     }
-    
     .call-now-button i {
         margin-right: 0;
         font-size: 22px;
     }
-    
     .footer-bottom {
         flex-direction: column;
         text-align: center;
         gap: 15px;
     }
-    
     .footer-bottom-links {
         justify-content: center;
     }
@@ -2189,71 +2076,56 @@ footer::before {
     section {
         padding: 40px 0;
     }
-    
     h1 {
         font-size: 2rem;
     }
-    
     h2 {
         font-size: 1.8rem;
     }
-    
     .hero-content h1 {
         font-size: 1.8rem;
     }
-    
     .hero-content h2 {
         font-size: 1rem;
     }
-    
     .container {
         padding: 0 15px;
     }
-    
     .btn-primary,
     .btn-secondary {
         padding: 10px 25px;
         font-size: 13px;
         min-width: 140px;
     }
-    
     .gallery-container {
         grid-template-columns: 1fr;
     }
-    
     .testimonial-slides {
         height: 350px;
     }
-    
     .testimonial-content {
         padding: 20px;
     }
-    
     .info h2 {
         font-size: 1.1rem;
     }
-    
     .footer-newsletter {
         min-width: 100%;
     }
 }
 
-
 @media (max-width: 400px) {
     .hero-content h1 {
         font-size: 1.6rem;
     }
-    
     .hero-content .btn-primary {
         padding: 10px 20px;
         font-size: 12px;
     }
-    
     .offer-card,
     .pricing-card {
         padding: 20px;
     }
-    
     .contact-icon {
         width: 50px;
         height: 50px;
@@ -2261,38 +2133,28 @@ footer::before {
         font-size: 20px;
         margin-right: 15px;
     }
-
-
-
 }
-@media (max-width: 932px) and (orientation: landscape) {
 
+@media (max-width: 932px) and (orientation: landscape) {
     section {
         padding: 30px 0;
     }
-
     h1 {
         font-size: 2rem;
     }
-
     h2 {
         font-size: 1.6rem;
         margin-bottom: 25px;
     }
-
     .hero-content h1 {
         font-size: 2rem;
     }
-
     .hero-content h2 {
         font-size: 1.1rem;
     }
-
-    /* Menu mobilne – lepsze dopasowanie */
     .nav-menu {
         padding-top: 60px;
     }
-
     .nav-menu li {
         margin: 10px 0;
     }
@@ -2300,28 +2162,21 @@ footer::before {
     .map-container {
         height: 500px;
         min-width: 100%;
-
     }
-    /* Formularz i kafelki */
     .booking-form,
     .weather-widget {
         width: 100%;
     }
-
     .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    width: 100%;
-    justify-items: center; /* Wyśrodkowanie elementów galerii */
-
-}
-
-    /* Opinie – mniejsza wysokość */
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        width: 100%;
+        justify-items: center;
+    }
     .testimonial-slides {
         height: 260px;
     }
-
     .testimonial-content {
         padding: 20px;
     }
@@ -2332,12 +2187,11 @@ footer::before {
         height: 350px;
     }
 }
+
 /* ============================================
    TELEFON LANDSCAPE – SAMSUNG / ANDROID FIX
 ============================================ */
 @media (orientation: landscape) and (max-height: 500px) {
-
-    /* KAFELKI / GRIDY */
     .offer-grid,
     .pricing-container,
     .routes-container,
@@ -2345,27 +2199,18 @@ footer::before {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 16px;
     }
-
-    /* Sekcje */
     section {
         padding: 30px 0;
     }
-
-    /* Opinie */
     .testimonial-slides {
         height: 240px;
     }
-
     .testimonial-content {
         padding: 18px;
     }
-
-    /* Formularz */
     .booking-container {
         flex-direction: column;
     }
-
-    /* Menu */
     .nav-menu li {
         margin: 8px 0;
     }
@@ -2383,83 +2228,62 @@ footer::before {
     box-shadow: 0 1px 5px rgba(0,0,0,0.65);
     border-radius: 5px;
     overflow: hidden;
-}       
-
+}
 .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
     border: 2px solid rgba(0,0,0,0.2);
     background-clip: padding-box;
     z-index: 1;
-    
 }
 .leaflet-control-zoom-out, .leaflet-control-zoom-in {
     background-color: var(--turquoise) !important;
     color: var(--white) !important;
     border-radius: 50% !important;
-    
-    
 }
-
-
 .leaflet-control-zoom leaflet-bar leaflet-control {
     box-shadow: none !important;
-    
 }
-
 .debug {
     outline: 1px solid red;
 }
-
 .hidden {
     display: none !important;
 }
-
 .visible {
     display: block !important;
 }
-
 .text-center {
     text-align: center;
 }
-
 .text-right {
     text-align: right;
 }
-
 .mt-0 { margin-top: 0 !important; }
 .mt-1 { margin-top: 0.5rem !important; }
 .mt-2 { margin-top: 1rem !important; }
 .mt-3 { margin-top: 1.5rem !important; }
 .mt-4 { margin-top: 2rem !important; }
 .mt-5 { margin-top: 3rem !important; }
-
 .mb-0 { margin-bottom: 0 !important; }
 .mb-1 { margin-bottom: 0.5rem !important; }
 .mb-2 { margin-bottom: 1rem !important; }
 .mb-3 { margin-bottom: 1.5rem !important; }
 .mb-4 { margin-bottom: 2rem !important; }
 .mb-5 { margin-bottom: 3rem !important; }
-
-/* Helper dla obrazków responsywnych */
 .responsive-img {
     max-width: 100%;
     height: auto;
     display: block;
 }
-
-/* Helper dla flexbox */
 .flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .flex-between {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
-/* Loading spinner */
 .spinner {
     width: 40px;
     height: 40px;
@@ -2469,17 +2293,14 @@ footer::before {
     animation: spin 1s linear infinite;
     margin: 20px auto;
 }
-
 @keyframes spin {
     to {
         transform: rotate(360deg);
     }
 }
-
 @media (orientation: landscape) and (max-height: 500px) {
     .offer-grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }
-
